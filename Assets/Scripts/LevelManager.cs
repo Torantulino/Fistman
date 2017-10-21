@@ -14,7 +14,7 @@ public class LevelManager : MonoBehaviour {
 	}
 	
 	// Update is called once per frame
-	void Update () {
+	void FixedUpdate () {
 
         if (Input.GetKeyDown("space"))
         {
@@ -34,6 +34,8 @@ public class LevelManager : MonoBehaviour {
         {
             //If menu isn't active
             Debug.Log("Left click!");
+            //Punch!
+            Player.Punch(Input.mousePosition);
         }
         if (Input.GetMouseButtonDown(1))
         {
