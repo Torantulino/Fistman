@@ -17,6 +17,10 @@ public class PlayerScript : MonoBehaviour {
     private float hozInput;
     private float runSpeed;
     private float jumpPower;
+    private Vector2 mousePos;
+    public Transform fist;
+    private Vector2 fistPos;
+    private float angle;
 
 
     private void Awake()
@@ -44,7 +48,12 @@ public class PlayerScript : MonoBehaviour {
     {
         CheckIfGrounded();
 
-        
+        mousePos = Input.mousePosition;
+        fistPos = Camera.main.WorldToScreenPoint(fist.position);
+        mousePos.x = mousePos.x - fistPos.x;
+        mousePos.y = mousePos.y - fistPos.y;
+        angle = Mathf.Atan2(mousePos.x, fistPos.x) * Mathf.Rad2Deg;
+        fist.rotation = Quaternion.Euler(0, 0, angle);
     }
 
     //Use for physics
