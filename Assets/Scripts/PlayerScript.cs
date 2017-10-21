@@ -134,4 +134,21 @@ public class PlayerScript : MonoBehaviour {
 
 
     }
+
+    void OnTriggerEnter2D(Collider2D col)
+    {
+        switch (col.gameObject.tag)
+        {
+            case "Bird":
+                //Destroy(col.gameObject);
+                punchAvail = true;
+                break;
+            case "Spider":
+                break;
+            case "Boss":
+                // Do something
+                break;
+
+        }
+    }
 }
