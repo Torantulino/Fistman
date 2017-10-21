@@ -139,11 +139,10 @@ public class PlayerScript : MonoBehaviour {
     {
         switch (col.gameObject.tag)
         {
-            case "Bird":
+            case "Spider":
+                col.gameObject.SetActive(false);
                 //Destroy(col.gameObject);
                 punchAvail = true;
-                break;
-            case "Spider":
                 break;
             case "Boss":
                 // Do something

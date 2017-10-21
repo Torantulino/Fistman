@@ -6,7 +6,7 @@ public class LevelManager : MonoBehaviour {
 
     public GameObject ThePlayer;
 
-    PlayerScript Player = new PlayerScript();
+    PlayerScript Player;
 
 	// Use this for initialization
 	void Start () {
