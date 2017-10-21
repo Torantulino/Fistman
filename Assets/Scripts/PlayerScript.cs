@@ -157,4 +157,12 @@ public class PlayerScript : MonoBehaviour {
 
         }
     }
+
+    void PowerUpFist()
+    {
+        //If it doesn't scale evenly, arguments should be relative to object being scaled-> multiply current object size by constant
+        fist.localScale += new Vector3(0.1f, 0.1f);
+    }
+
+
 }
