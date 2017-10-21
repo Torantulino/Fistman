@@ -11,6 +11,8 @@ public class LevelManager : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
         Player = ThePlayer.GetComponent<PlayerScript>();
+
+        
 	}
 	
 	// Update is called once per frame
@@ -36,11 +38,16 @@ public class LevelManager : MonoBehaviour {
             Debug.Log("Left click!");
             //Punch!
             Player.Punch(Input.mousePosition);
+
         }
         if (Input.GetMouseButtonDown(1))
         {
             //If menu isn't active
             Debug.Log("Right Click!");
+        }
+        if (!Input.anyKey)
+        {
+            Player.PlayerIdle();
         }
 	}
 }
