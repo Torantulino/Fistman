@@ -27,7 +27,7 @@ public class Boss : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
         
-            if (Time.time - startTime > 5.0f)
+            if (Time.time - startTime > 1.0f)
             {
                 SpawnSpider();
                 startTime = Time.time;

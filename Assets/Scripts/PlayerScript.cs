@@ -17,6 +17,7 @@ public class PlayerScript : MonoBehaviour {
     private float hozInput;
     private float runSpeed;
     private float jumpPower;
+    private float bossBouncePower;
     private Vector2 mousePos;
     public Transform fist;
     private Vector2 fistPos;
@@ -38,6 +39,7 @@ public class PlayerScript : MonoBehaviour {
 
         runSpeed = 4.0f;
         jumpPower = 5.0f;
+        bossBouncePower = 3.0f;
 
         movementVector = zero;
 
@@ -121,11 +123,9 @@ public class PlayerScript : MonoBehaviour {
     {
         RaycastHit2D hit2D = Physics2D.Raycast(rgdBody.position - new Vector2(0f, 0.5f), Vector2.down, 0.1f, envLayerMask);
 
-
         if (hit2D)
         {
             isGrounded = true;
-
         }
         else
         {
@@ -144,8 +144,11 @@ public class PlayerScript : MonoBehaviour {
                 //Destroy(col.gameObject);
                 punchAvail = true;
                 break;
-            case "Boss":
-                // Do something
+            case "BossSide":
+                // bounce back
+                rgdBody.velocity = new Vector2(bossBouncePower, rgdBody.velocity.x);
+                break;
+            case "BossTop":
                 break;
 
         }
