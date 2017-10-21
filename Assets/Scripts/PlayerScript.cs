@@ -144,9 +144,13 @@ public class PlayerScript : MonoBehaviour {
                 //Destroy(col.gameObject);
                 punchAvail = true;
                 break;
-            case "BossSide":
+            case "BossLeftSide":
                 // bounce back
-                rgdBody.velocity = new Vector2(bossBouncePower, rgdBody.velocity.x);
+                rgdBody.velocity = new Vector2(-bossBouncePower, rgdBody.velocity.y);
+                break;
+            case "BossRightSide":
+                // bounce back
+                rgdBody.velocity = new Vector2(bossBouncePower, rgdBody.velocity.y);
                 break;
             case "BossTop":
                 break;

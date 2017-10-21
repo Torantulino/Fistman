@@ -26,7 +26,6 @@ public class Boss : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-        
             if (Time.time - startTime > 1.0f)
             {
                 SpawnSpider();
@@ -40,12 +39,6 @@ public class Boss : MonoBehaviour {
         {
             //Attack
         }
-    }
-
-    void PopulateSpiderPositionArray()
-    {
-
-        Debug.Log("populate");
     }
 
     void SpawnSpider()
