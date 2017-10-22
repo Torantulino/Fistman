@@ -28,6 +28,15 @@ public class PlayerScript : MonoBehaviour {
     private Animator playerAnimator;
     private Animator fistAnimator;
     private SpriteRenderer playerSpriteRen;
+    public AudioSource music;
+    public Camera MainCam;
+
+    public GameObject heart1;
+    public GameObject heart2;
+    public GameObject heart3;
+    public GameObject heart4;
+    public GameObject heart5;
+    public List<GameObject> UIHearts = new List<GameObject>();
 
     private void Awake()
     {
@@ -37,8 +46,9 @@ public class PlayerScript : MonoBehaviour {
     // Use this for initialization
     void Start ()
     {
-
+        PopulateHearts();
         health = 5;
+        
         zero.x = 0;
         zero.y = 0;
 
@@ -150,6 +160,10 @@ public class PlayerScript : MonoBehaviour {
                 playerAnimator.SetBool("isRunning", true);
                 playerSpriteRen.flipX = true;
             }
+            if (!music.isPlaying)
+            {
+                music.Play();
+            }
         }
         
     }
@@ -158,6 +172,7 @@ public class PlayerScript : MonoBehaviour {
     {
         playerAnimator.SetBool("isRunning", false);
         playerAnimator.SetBool("isJumping", false);
+        music.Stop();
     }
 
     public void Punch(Vector3 mouseLoc)
@@ -216,8 +231,14 @@ public class PlayerScript : MonoBehaviour {
 
     private void PlayerInjured()
     {
+
         //Take Damage
         health--;
+        //Check if dead.##########
+
+        //Remove heart
+        UIHearts[health].SetActive(false);
+
         //Play Injured Sound
 
         //Play Injured Animation
@@ -247,6 +268,13 @@ public class PlayerScript : MonoBehaviour {
                 //take damage
                 PlayerInjured();
                 break;
+            case "CameraZoomout":
+                {
+                    //Zoomout Camera For BossFight
+                    //##LERP##
+                    MainCam.orthographicSize = 10;
+                    break;
+                }
 
         }
     }
@@ -281,5 +309,13 @@ public class PlayerScript : MonoBehaviour {
         fist.localScale += new Vector3(0.1f, 0.1f);
     }
 
+    void PopulateHearts()
+    {
+        UIHearts.Add(heart1);
+        UIHearts.Add(heart2);
+        UIHearts.Add(heart3);
+        UIHearts.Add(heart4);
+        UIHearts.Add(heart5);
+    }
 
 }

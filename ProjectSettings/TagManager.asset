@@ -6,6 +6,9 @@ TagManager:
   tags:
   - Spider
   - Bird
+  - BossLeftSide
+  - BossRightSide
+  - CameraZoomout
   layers:
   - Default
   - TransparentFX
@@ -48,4 +51,7 @@ TagManager:
     locked: 0
   - name: Foreground
     uniqueID: 3632412299
+    locked: 0
+  - name: FrontmostGround
+    uniqueID: 2773053361
     locked: 0

@@ -7,6 +7,7 @@ public class AmazingFistScript : MonoBehaviour {
     PlayerScript PlayerScr = new PlayerScript();
     public GameObject ThePlayer;
     public bool isPunching;
+    public AudioSource punchSound;
 
 	// Use this for initialization
 	void Start ()
@@ -18,8 +19,18 @@ public class AmazingFistScript : MonoBehaviour {
     {
         if (!isPunching)
         {
+            
             PlayerScr.NoHitting();
         }
+        else
+        {
+            if (!punchSound.isPlaying)
+            {
+                punchSound.Play();
+            }
+
+        }
+
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
