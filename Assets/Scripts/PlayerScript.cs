@@ -88,7 +88,6 @@ public class PlayerScript : MonoBehaviour {
         }
 
 
-
     }
 
     //Use for physics
@@ -237,10 +236,16 @@ public class PlayerScript : MonoBehaviour {
 
         //Take Damage
         health--;
-        //Check if dead.##########
-
+        
         //Remove heart
         UIHearts[health].SetActive(false);
+
+        //Check if dead.##########
+        if (health < 1)
+        {
+            Application.Quit();
+            Debug.Log("health is less than one");
+        }
 
         //Play Injured Sound
 
