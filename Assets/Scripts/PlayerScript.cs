@@ -272,7 +272,7 @@ public class PlayerScript : MonoBehaviour {
                 {
                     //Zoomout Camera For BossFight
                     //##LERP##
-                    MainCam.orthographicSize = 10;
+                    MainCam.orthographicSize = Mathf.Lerp(5, 10, Time.deltaTime * 3);
                     break;
                 }
 
