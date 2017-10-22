@@ -5,7 +5,7 @@ using UnityEngine;
 public class Boss : MonoBehaviour {
 
     public float health;
-    private bool abilityAvailable; //is the ability on cooldown?
+    public bool abilityAvailable; //Had the ability been triggered?
     public GameObject position1;
     public GameObject position2;
     public GameObject position3;
@@ -19,6 +19,7 @@ public class Boss : MonoBehaviour {
     public GameObject wSpider6;
     public GameObject wSpider7;
     public GameObject wSpider8;
+    public GameObject AttackSpider;
     public List<GameObject> WallSpiders = new List<GameObject>();
 
 
@@ -32,6 +33,7 @@ public class Boss : MonoBehaviour {
         startTime = Time.time;
         PopulateSpiderMinions();
         PopulateWallSpiders();
+        abilityAvailable = false;
     }
 	
 	// Update is called once per frame
@@ -45,8 +47,10 @@ public class Boss : MonoBehaviour {
             //Spider Respawn
             RespawnWallSpider();
             startTime = Time.time;
+            //Attack Spider Respawn
+            
         }
-
+        Attack();
     }
 
     private void PopulateSpiderMinions()
@@ -74,7 +78,10 @@ public class Boss : MonoBehaviour {
     {
         if (abilityAvailable)
         {
+            Debug.Log("ATTACK SPIDER");
             //Attack
+            Instantiate<GameObject>(AttackSpider, transform); 
+            
         }
     }
 

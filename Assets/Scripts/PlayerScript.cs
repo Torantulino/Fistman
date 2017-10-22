@@ -30,6 +30,8 @@ public class PlayerScript : MonoBehaviour {
     private SpriteRenderer playerSpriteRen;
     public AudioSource music;
     public Camera MainCam;
+    public GameObject spiderBoss;
+    private Boss BossScript;
 
     public GameObject heart1;
     public GameObject heart2;
@@ -46,6 +48,8 @@ public class PlayerScript : MonoBehaviour {
     // Use this for initialization
     void Start ()
     {
+        BossScript = spiderBoss.GetComponent<Boss>();
+
         PopulateHearts();
         health = 5;
         
@@ -272,6 +276,7 @@ public class PlayerScript : MonoBehaviour {
                 {
                     //Zoomout Camera For BossFight
                     //##LERP##
+                    BossScript.abilityAvailable = true;
                     MainCam.orthographicSize = 10;
                     break;
                 }
@@ -286,7 +291,6 @@ public class PlayerScript : MonoBehaviour {
         {
             case "Spider":
                 col.gameObject.SetActive(false);
-                //Destroy(col.gameObject);
                 punchAvail = true;
                 break;
             case "BossLeftSide":
