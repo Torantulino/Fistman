@@ -38,6 +38,7 @@ public class PlayerScript : MonoBehaviour {
     public GameObject heart3;
     public GameObject heart4;
     public GameObject heart5;
+    public GameObject fistPowerUp;
     public List<GameObject> UIHearts = new List<GameObject>();
 
     private void Awake()
@@ -78,6 +79,7 @@ public class PlayerScript : MonoBehaviour {
         if (isGrounded)
         {
             punchAvail = true;
+            fistPowerUp.SetActive(true);
             if (!Input.GetKeyDown("space"))
             {
                 playerAnimator.SetBool("isJumping", false);
@@ -88,7 +90,6 @@ public class PlayerScript : MonoBehaviour {
         {
             playerAnimator.SetBool("Grounded", false);
         }
-
 
 
     }
@@ -195,6 +196,7 @@ public class PlayerScript : MonoBehaviour {
 
             //Set Punch Unavailable
             punchAvail = false;
+            fistPowerUp.SetActive(false);
         }
     }
 
@@ -238,10 +240,16 @@ public class PlayerScript : MonoBehaviour {
 
         //Take Damage
         health--;
-        //Check if dead.##########
-
+        
         //Remove heart
         UIHearts[health].SetActive(false);
+
+        //Check if dead.##########
+        if (health < 1)
+        {
+            Application.Quit();
+            Debug.Log("health is less than one");
+        }
 
         //Play Injured Sound
 
@@ -277,7 +285,7 @@ public class PlayerScript : MonoBehaviour {
                     //Zoomout Camera For BossFight
                     //##LERP##
                     BossScript.abilityAvailable = true;
-                    MainCam.orthographicSize = 10;
+                    MainCam.orthographicSize = Mathf.Lerp(5, 10, Time.deltaTime * 3);
                     break;
                 }
 
@@ -292,6 +300,8 @@ public class PlayerScript : MonoBehaviour {
             case "Spider":
                 col.gameObject.SetActive(false);
                 punchAvail = true;
+                PowerUpFist();
+                fistPowerUp.SetActive(true);
                 break;
             case "BossLeftSide":
                 // bounce back
