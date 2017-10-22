@@ -192,8 +192,11 @@ public class PlayerScript : MonoBehaviour {
         if (hit2D)
         {
             isGrounded = true;
+<<<<<<< HEAD
             fistAnimator.SetBool("Grounded", true);
 
+=======
+>>>>>>> master
         }
         else
         {
@@ -204,10 +207,12 @@ public class PlayerScript : MonoBehaviour {
 
     }
 
+<<<<<<< HEAD
     public void NoHitting()
     {
         isPunching = false;
     }
+=======
     void OnTriggerEnter2D(Collider2D col)
     {
         switch (col.gameObject.tag)
@@ -238,4 +243,5 @@ public class PlayerScript : MonoBehaviour {
     }
 
 
+>>>>>>> master
 }

@@ -6,7 +6,7 @@ public class LevelManager : MonoBehaviour {
 
     public GameObject ThePlayer;
 
-    PlayerScript Player = new PlayerScript();
+    PlayerScript Player;
 
 	// Use this for initialization
 	void Start () {
@@ -35,7 +35,6 @@ public class LevelManager : MonoBehaviour {
         if (Input.GetMouseButtonDown(0))
         {
             //If menu isn't active
-            Debug.Log("Left click!");
             //Punch!
             Player.Punch(Input.mousePosition);
 
@@ -43,7 +42,6 @@ public class LevelManager : MonoBehaviour {
         if (Input.GetMouseButtonDown(1))
         {
             //If menu isn't active
-            Debug.Log("Right Click!");
         }
         if (!Input.anyKey)
         {
