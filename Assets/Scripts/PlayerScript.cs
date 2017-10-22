@@ -68,6 +68,11 @@ public class PlayerScript : MonoBehaviour {
             {
                 playerAnimator.SetBool("isJumping", false);
             }
+            playerAnimator.SetBool("Grounded", true);
+        }
+        else
+        {
+            playerAnimator.SetBool("Grounded", false);
         }
 
 
@@ -96,7 +101,7 @@ public class PlayerScript : MonoBehaviour {
         //Player Rotation
         if (!isGrounded)
         {
-            playerBody.transform.rotation = Quaternion.Euler(0, 0, angle);
+            playerBody.transform.rotation = Quaternion.Euler(0, 0, angle -90);
         }
         else
         {
