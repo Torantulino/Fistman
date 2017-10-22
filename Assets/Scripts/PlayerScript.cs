@@ -36,6 +36,7 @@ public class PlayerScript : MonoBehaviour {
     public GameObject heart3;
     public GameObject heart4;
     public GameObject heart5;
+    public GameObject fistPowerUp;
     public List<GameObject> UIHearts = new List<GameObject>();
 
     private void Awake()
@@ -74,6 +75,7 @@ public class PlayerScript : MonoBehaviour {
         if (isGrounded)
         {
             punchAvail = true;
+            fistPowerUp.SetActive(true);
             if (!Input.GetKeyDown("space"))
             {
                 playerAnimator.SetBool("isJumping", false);
@@ -191,6 +193,7 @@ public class PlayerScript : MonoBehaviour {
 
             //Set Punch Unavailable
             punchAvail = false;
+            fistPowerUp.SetActive(false);
         }
     }
 
@@ -288,6 +291,8 @@ public class PlayerScript : MonoBehaviour {
                 col.gameObject.SetActive(false);
                 //Destroy(col.gameObject);
                 punchAvail = true;
+                PowerUpFist();
+                fistPowerUp.SetActive(true);
                 break;
             case "BossLeftSide":
                 // bounce back
