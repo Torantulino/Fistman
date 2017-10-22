@@ -6,28 +6,28 @@ public class PlayerScript : MonoBehaviour {
 
     private int fistMass;
     private int playerMass;
-    private float health;
+    private int health;
     private float verticalSpeed;
     private float horizontalSpeed;
-    private Vector2 movementVector;
-    private Vector2 zero;
-    private bool isGrounded;
-    private Rigidbody2D rgdBody;
-    private LayerMask envLayerMask;
     private float hozInput;
     private float runSpeed;
     private float jumpPower;
     private float bossBouncePower;
-    private Vector2 mousePos;
-    public Transform fist;
-    private Vector2 fistPos;
     private float angle;
+    private bool isGrounded;
     private bool punchAvail;
+    public bool isPunching;
+    private Vector2 movementVector;
+    private Vector2 zero;
+    private Vector2 mousePos;
+    private Vector2 fistPos;
+    private Rigidbody2D rgdBody;
+    private LayerMask envLayerMask;
+    public Transform fist;
     public GameObject playerBody;
     private Animator playerAnimator;
-    private SpriteRenderer playerSpriteRen;
     private Animator fistAnimator;
-    public bool isPunching;
+    private SpriteRenderer playerSpriteRen;
 
     private void Awake()
     {
@@ -111,7 +111,7 @@ public class PlayerScript : MonoBehaviour {
 
     }
 
-    public float Health
+    public int Health
     {
         get
         {
@@ -213,7 +213,46 @@ public class PlayerScript : MonoBehaviour {
     {
         isPunching = false;
     }
+
+    private void PlayerInjured()
+    {
+        //Take Damage
+        health--;
+        //Play Injured Sound
+
+        //Play Injured Animation
+        playerAnimator.SetTrigger("Injured");
+    }
+
+    //Player Collisions
     void OnTriggerEnter2D(Collider2D col)
+    {
+        switch (col.gameObject.tag)
+        {
+            case "Spider":
+                if (col.gameObject.activeInHierarchy)
+                {
+                    PlayerInjured();
+                }
+                break;
+            case "BossLeftSide":
+                // bounce back
+                rgdBody.velocity = new Vector2(-bossBouncePower, rgdBody.velocity.y);
+                //take damage
+                PlayerInjured();
+                break;
+            case "BossRightSide":
+                // bounce back
+                rgdBody.velocity = new Vector2(bossBouncePower, rgdBody.velocity.y);
+                //take damage
+                PlayerInjured();
+                break;
+
+        }
+    }
+
+    //Fist Collisions
+    public void FistCollision(Collider2D col)
     {
         switch (col.gameObject.tag)
         {

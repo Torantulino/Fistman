@@ -21,4 +21,9 @@ public class AmazingFistScript : MonoBehaviour {
             PlayerScr.NoHitting();
         }
     }
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        PlayerScr.FistCollision(collision);
+    }
 }
