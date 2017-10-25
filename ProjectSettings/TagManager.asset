@@ -9,6 +9,7 @@ TagManager:
   - BossLeftSide
   - BossRightSide
   - CameraZoomout
+  - Boss
   layers:
   - Default
   - TransparentFX

@@ -14,9 +14,10 @@ public class PlayerScript : MonoBehaviour {
     private float jumpPower;
     private float bossBouncePower;
     private float angle;
-    private bool isGrounded;
+    public bool isGrounded;
     private bool punchAvail;
     public bool isPunching;
+    private bool zoomOut;
     private Vector2 movementVector;
     private Vector2 zero;
     private Vector2 mousePos;
@@ -32,6 +33,9 @@ public class PlayerScript : MonoBehaviour {
     public Camera MainCam;
     public GameObject spiderBoss;
     private Boss BossScript;
+    public AudioSource musicSlow;
+    public AudioSource musicMedium;
+    public AudioSource musicFast;
 
     public GameObject heart1;
     public GameObject heart2;
@@ -49,6 +53,8 @@ public class PlayerScript : MonoBehaviour {
     // Use this for initialization
     void Start ()
     {
+        musicSlow.Play();
+
         BossScript = spiderBoss.GetComponent<Boss>();
 
         PopulateHearts();
@@ -58,10 +64,11 @@ public class PlayerScript : MonoBehaviour {
         zero.y = 0;
 
         isPunching = false;
+        zoomOut = false;
 
         runSpeed = 4.0f;
         jumpPower = 5.0f;
-        bossBouncePower = 3.0f;
+        bossBouncePower = 20.0f;
 
         movementVector = zero;
 
@@ -90,7 +97,16 @@ public class PlayerScript : MonoBehaviour {
         {
             playerAnimator.SetBool("Grounded", false);
         }
-
+        if (zoomOut)
+        {
+            float currentTime = +Time.time;
+            float desiredTime = 5.0f;
+            MainCam.orthographicSize = Mathf.Lerp(5, 15, currentTime / desiredTime);
+            if (currentTime >= desiredTime)
+            {
+                zoomOut = false;
+            }
+        }
 
     }
 
@@ -213,9 +229,10 @@ public class PlayerScript : MonoBehaviour {
 
     public void CheckIfGrounded()
     {
-        RaycastHit2D hit2D = Physics2D.Raycast(rgdBody.position - new Vector2(0f, 1.0f), Vector2.down, 0.2f, envLayerMask);
+        RaycastHit2D hit2DL = Physics2D.Raycast(rgdBody.position - new Vector2(0.51f, 1.0f), Vector2.down, 0.2f, envLayerMask);
+        RaycastHit2D hit2DR = Physics2D.Raycast(rgdBody.position - new Vector2(-0.51f, 1.0f), Vector2.down, 0.2f, envLayerMask);
 
-        if (hit2D)
+        if (hit2DL || hit2DR)
         {
             isGrounded = true;
             fistAnimator.SetBool("Grounded", true);
@@ -269,23 +286,28 @@ public class PlayerScript : MonoBehaviour {
                 }
                 break;
             case "BossLeftSide":
-                // bounce back
+                //Bounce back
+                isGrounded = false;//So that the player walking cannot cancel bounce
                 rgdBody.velocity = new Vector2(-bossBouncePower, rgdBody.velocity.y);
-                //take damage
-                PlayerInjured();
+                //Take no damagae but play animation
+                playerAnimator.SetTrigger("Injured");
                 break;
             case "BossRightSide":
-                // bounce back
+                //Bounce back
+                isGrounded = false; //So that the player walking cannot cancel bounce
                 rgdBody.velocity = new Vector2(bossBouncePower, rgdBody.velocity.y);
-                //take damage
-                PlayerInjured();
+                //Take no damagae but play animation
+                playerAnimator.SetTrigger("Injured");
                 break;
             case "CameraZoomout":
                 {
                     //Zoomout Camera For BossFight
-                    //##LERP##
+                    zoomOut = true;
+                    //Activate Boss attack
                     BossScript.abilityAvailable = true;
-                    MainCam.orthographicSize = Mathf.Lerp(5, 10, Time.deltaTime * 3);
+                    //Start Boss music phase1
+                    musicSlow.Stop();
+                    musicMedium.Play();
                     break;
                 }
 
@@ -300,16 +322,8 @@ public class PlayerScript : MonoBehaviour {
             case "Spider":
                 col.gameObject.SetActive(false);
                 punchAvail = true;
-                PowerUpFist();
+                //PowerUpFist();
                 fistPowerUp.SetActive(true);
-                break;
-            case "BossLeftSide":
-                // bounce back
-                rgdBody.velocity = new Vector2(-bossBouncePower, rgdBody.velocity.y);
-                break;
-            case "BossRightSide":
-                // bounce back
-                rgdBody.velocity = new Vector2(bossBouncePower, rgdBody.velocity.y);
                 break;
             case "BossTop":
                 break;

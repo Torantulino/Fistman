@@ -19,7 +19,8 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4320834376680688}
-  - component: {fileID: 212498913479002178}
+  - component: {fileID: 95396198359386024}
+  - component: {fileID: 212047952356425214}
   m_Layer: 0
   m_Name: Sprite
   m_TagString: Untagged
@@ -37,9 +38,10 @@ GameObject:
   - component: {fileID: 4231040211749236}
   - component: {fileID: 114173605329750842}
   - component: {fileID: 50942675190902394}
+  - component: {fileID: 61294320172111686}
   m_Layer: 0
   m_Name: AttackSpider
-  m_TagString: Untagged
+  m_TagString: Spider
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -51,7 +53,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1951406534739526}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 225.01022, y: 51.211815, z: 0}
+  m_LocalPosition: {x: 107.63506, y: -2.1422985, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4320834376680688}
@@ -91,6 +93,48 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 4
+--- !u!61 &61294320172111686
+BoxCollider2D:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1951406534739526}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: -0.00390625, y: -0.07034016}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0, y: 0}
+    oldSize: {x: 0, y: 0}
+    newSize: {x: 0, y: 0}
+    adaptiveTilingThreshold: 0
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 0.6326599, y: 1.0625248}
+  m_EdgeRadius: 0
+--- !u!95 &95396198359386024
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1698106708848836}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: c4c140f488bd1f64ab9f7d67efcfc49f, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
 --- !u!114 &114173605329750842
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -102,8 +146,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 45f6a161f04255645ba44427278a0cdf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 20
---- !u!212 &212498913479002178
+--- !u!212 &212047952356425214
 SpriteRenderer:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
@@ -135,7 +178,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300002, guid: 0096cdae79221834a9c3c4f7699077b3, type: 3}
+  m_Sprite: {fileID: 0}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0

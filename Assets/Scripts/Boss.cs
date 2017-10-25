@@ -6,11 +6,17 @@ public class Boss : MonoBehaviour {
 
     public float health;
     public bool abilityAvailable; //Had the ability been triggered?
+    public GameObject position0;
     public GameObject position1;
     public GameObject position2;
     public GameObject position3;
     public GameObject position4;
     public GameObject position5;
+    public GameObject position6;
+    public GameObject position7;
+    public GameObject position8;
+    public GameObject position9;
+    public GameObject position10;
     public GameObject wSpider1;
     public GameObject wSpider2;
     public GameObject wSpider3;
@@ -19,17 +25,17 @@ public class Boss : MonoBehaviour {
     public GameObject wSpider6;
     public GameObject wSpider7;
     public GameObject wSpider8;
-    public GameObject AttackSpider;
-    public List<GameObject> WallSpiders = new List<GameObject>();
-
-
-
+    public GameObject attackSpider;
+    public GameObject ThePlayer;
+    private PlayerScript playerScript;
+    private List<GameObject> WallSpiders = new List<GameObject>();
     private List<GameObject> spiderMinions = new List<GameObject>();
-    float startTime;
+    private float startTime;
 
     // Use this for initialization
     void Start ()
     {
+        playerScript = ThePlayer.GetComponent<PlayerScript>();
         startTime = Time.time;
         PopulateSpiderMinions();
         PopulateWallSpiders();
@@ -39,27 +45,38 @@ public class Boss : MonoBehaviour {
 	// Update is called once per frame
 	void Update ()
     {
+
         //Spider Respawn
         if (Time.time - startTime > 2.0f)
-        {
-            //Boss Minion Spawn
-            SpawnSpider();
-            //Spider Respawn
-            RespawnWallSpider();
+            {
+            if (playerScript.isGrounded)
+            {
+                //Boss Minion Spawn
+                SpawnSpider();
+                //Spider Respawn
+                RespawnWallSpider();
+            }
+            //Attack Spider Spawn
+            Attack();
+            //Reset 
             startTime = Time.time;
-            //Attack Spider Respawn
-            
-        }
-        Attack();
+            }
+        
     }
 
     private void PopulateSpiderMinions()
     {
+        spiderMinions.Add(position0);
         spiderMinions.Add(position1);
         spiderMinions.Add(position2);
         spiderMinions.Add(position3);
         spiderMinions.Add(position4);
         spiderMinions.Add(position5);
+        spiderMinions.Add(position6);
+        spiderMinions.Add(position7);
+        spiderMinions.Add(position8);
+        spiderMinions.Add(position9);
+        spiderMinions.Add(position10);
     }
 
     private void PopulateWallSpiders()
@@ -74,13 +91,14 @@ public class Boss : MonoBehaviour {
         WallSpiders.Add(wSpider8);
     }
 
+    //Boss attack
     public void Attack()
     {
         if (abilityAvailable)
         {
             Debug.Log("ATTACK SPIDER");
             //Attack
-            Instantiate<GameObject>(AttackSpider, transform); 
+            Instantiate<GameObject>(attackSpider, transform); 
             
         }
     }
@@ -88,11 +106,12 @@ public class Boss : MonoBehaviour {
     //Boss Minion Spiders
     void SpawnSpider()
     {
-        System.Random r = new System.Random();
-        int randomNumber = r.Next(0,5);
-
-        spiderMinions[randomNumber].gameObject.SetActive(true);
+        foreach (GameObject spiderMinion in spiderMinions)
+        {
+            spiderMinion.transform.GetChild(0).gameObject.SetActive(true);
+        }
     }
+
     //Wall Spider Respawn
     void RespawnWallSpider()
     {
@@ -101,7 +120,4 @@ public class Boss : MonoBehaviour {
             WallSpider.SetActive(true);
         }
     }
-        
-
-
 }
