@@ -31,6 +31,7 @@ public class Boss : MonoBehaviour {
     private List<GameObject> WallSpiders = new List<GameObject>();
     private List<GameObject> spiderMinions = new List<GameObject>();
     private float startTime;
+    public float respawnTime;
 
     // Use this for initialization
     void Start ()
@@ -40,6 +41,7 @@ public class Boss : MonoBehaviour {
         PopulateSpiderMinions();
         PopulateWallSpiders();
         abilityAvailable = false;
+        respawnTime = 2.0f;
     }
 	
 	// Update is called once per frame
@@ -47,7 +49,7 @@ public class Boss : MonoBehaviour {
     {
 
         //Spider Respawn
-        if (Time.time - startTime > 2.0f)
+        if (Time.time - startTime > respawnTime)
             {
             if (playerScript.isGrounded)
             {

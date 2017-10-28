@@ -1,12 +1,14 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class PlayerScript : MonoBehaviour {
 
     private int fistMass;
     private int playerMass;
     private int health;
+    private int bossHitCount;
     private float verticalSpeed;
     private float horizontalSpeed;
     private float hozInput;
@@ -18,6 +20,7 @@ public class PlayerScript : MonoBehaviour {
     private bool punchAvail;
     public bool isPunching;
     private bool zoomOut;
+    private bool hasBeenGrounded;
     private Vector2 movementVector;
     private Vector2 zero;
     private Vector2 mousePos;
@@ -29,13 +32,17 @@ public class PlayerScript : MonoBehaviour {
     private Animator playerAnimator;
     private Animator fistAnimator;
     private SpriteRenderer playerSpriteRen;
-    public AudioSource music;
     public Camera MainCam;
     public GameObject spiderBoss;
     private Boss BossScript;
+    public AudioSource runningSound;
     public AudioSource musicSlow;
     public AudioSource musicMedium;
     public AudioSource musicFast;
+    public AudioSource spiderSquish;
+    public AudioSource bossRoar;
+    public AudioSource bossDeath;
+
 
     public GameObject heart1;
     public GameObject heart2;
@@ -43,6 +50,8 @@ public class PlayerScript : MonoBehaviour {
     public GameObject heart4;
     public GameObject heart5;
     public GameObject fistPowerUp;
+    public GameObject bossHat;
+    public GameObject bossWig;
     public List<GameObject> UIHearts = new List<GameObject>();
 
     private void Awake()
@@ -53,6 +62,8 @@ public class PlayerScript : MonoBehaviour {
     // Use this for initialization
     void Start ()
     {
+        bossHitCount = 0;
+
         musicSlow.Play();
 
         BossScript = spiderBoss.GetComponent<Boss>();
@@ -181,9 +192,9 @@ public class PlayerScript : MonoBehaviour {
                 playerAnimator.SetBool("isRunning", true);
                 playerSpriteRen.flipX = true;
             }
-            if (!music.isPlaying)
+            if (!runningSound.isPlaying)
             {
-                music.Play();
+                runningSound.Play();
             }
         }
         
@@ -193,7 +204,7 @@ public class PlayerScript : MonoBehaviour {
     {
         playerAnimator.SetBool("isRunning", false);
         playerAnimator.SetBool("isJumping", false);
-        music.Stop();
+        runningSound.Stop();
     }
 
     public void Punch(Vector3 mouseLoc)
@@ -222,6 +233,12 @@ public class PlayerScript : MonoBehaviour {
         rgdBody.gravityScale = 2.0f;
     }
 
+    IEnumerator EndGame()
+    {
+        yield return new WaitForSeconds(4.0f);
+        SceneManager.LoadScene("WinScreen");
+    }
+
     public void HookShot(Vector2 mouseLoc)
     {
         //Validation (must be attached to player)
@@ -235,8 +252,8 @@ public class PlayerScript : MonoBehaviour {
         if (hit2DL || hit2DR)
         {
             isGrounded = true;
+            hasBeenGrounded = true;
             fistAnimator.SetBool("Grounded", true);
-
         }
         else
         {
@@ -261,10 +278,10 @@ public class PlayerScript : MonoBehaviour {
         //Remove heart
         UIHearts[health].SetActive(false);
 
-        //Check if dead.##########
+        //Check if dead
         if (health < 1)
         {
-            Application.Quit();
+            SceneManager.LoadScene("DeathScreen");
             Debug.Log("health is less than one");
         }
 
@@ -299,6 +316,7 @@ public class PlayerScript : MonoBehaviour {
                 //Take no damagae but play animation
                 playerAnimator.SetTrigger("Injured");
                 break;
+ 
             case "CameraZoomout":
                 {
                     //Zoomout Camera For BossFight
@@ -308,6 +326,7 @@ public class PlayerScript : MonoBehaviour {
                     //Start Boss music phase1
                     musicSlow.Stop();
                     musicMedium.Play();
+                    bossRoar.Play();
                     break;
                 }
 
@@ -321,14 +340,59 @@ public class PlayerScript : MonoBehaviour {
         {
             case "Spider":
                 col.gameObject.SetActive(false);
+                spiderSquish.Play();
                 punchAvail = true;
                 //PowerUpFist();
                 fistPowerUp.SetActive(true);
                 break;
-            case "BossTop":
+            case "BossTopSide":
+                //If the player has touched the ground since last hit
+                if (hasBeenGrounded == true)
+                {
+                    //Call BossTopHit
+                    BossTopHit();
+                    hasBeenGrounded = false;
+                }
                 break;
 
         }
+    }
+
+    private void BossTopHit()
+    {
+
+        if (bossHitCount == 0)
+        {
+            //Remove Hat
+            Rigidbody2D hat = bossHat.GetComponent<Rigidbody2D>();
+            hat.velocity = new Vector2(1, 5);
+            hat.angularVelocity = 180;
+            hat.gravityScale = 1;
+
+        }
+        else if (bossHitCount == 1)
+        {
+            //Remove Wig
+            Rigidbody2D wig = bossWig.GetComponent<Rigidbody2D>();
+            wig.velocity = new Vector2(1, 5);
+            wig.angularVelocity = -180;
+            wig.gravityScale = 1;
+            musicMedium.Stop();
+            musicFast.Play();
+            BossScript.respawnTime = 1.0f;
+            bossRoar.Play();
+        }
+        else if (bossHitCount == 2)
+        {
+            //Kill Boss
+            Rigidbody2D bossRD2D = spiderBoss.GetComponentInChildren<Rigidbody2D>();
+            bossRD2D.angularVelocity = 90;
+            bossRD2D.velocity = new Vector2(1, -5);
+            Destroy(spiderBoss, 5);
+            bossDeath.Play();
+            StartCoroutine(EndGame());
+        }
+        bossHitCount++;
     }
 
     void PowerUpFist()
@@ -345,5 +409,4 @@ public class PlayerScript : MonoBehaviour {
         UIHearts.Add(heart4);
         UIHearts.Add(heart5);
     }
-
 }
