@@ -1,0 +1,267 @@
+Initialize engine version: 2017.1.0b4 (ab0150af3e1e)
+GfxDevice: creating device client; threaded=1
+Direct3D:
+    Version:  Direct3D 11.0 [level 11.0]
+    Renderer: NVIDIA GeForce GTX 960M (ID=0x139b)
+    Vendor:   NVIDIA
+    VRAM:     2019 MB
+    Driver:   22.21.13.8205
+Begin MonoManager ReloadAssembly
+Platform assembly: C:\Users\Torantula\Documents\Fistman\Fistman_Data\Managed\UnityEngine.dll (this message is harmless)
+Loading C:\Users\Torantula\Documents\Fistman\Fistman_Data\Managed\UnityEngine.dll into Unity Child Domain
+Platform assembly: C:\Users\Torantula\Documents\Fistman\Fistman_Data\Managed\Assembly-CSharp.dll (this message is harmless)
+Loading C:\Users\Torantula\Documents\Fistman\Fistman_Data\Managed\Assembly-CSharp.dll into Unity Child Domain
+Platform assembly: C:\Users\Torantula\Documents\Fistman\Fistman_Data\Managed\UnityEngine.UI.dll (this message is harmless)
+Loading C:\Users\Torantula\Documents\Fistman\Fistman_Data\Managed\UnityEngine.UI.dll into Unity Child Domain
+Platform assembly: C:\Users\Torantula\Documents\Fistman\Fistman_Data\Managed\UnityEngine.Networking.dll (this message is harmless)
+Loading C:\Users\Torantula\Documents\Fistman\Fistman_Data\Managed\UnityEngine.Networking.dll into Unity Child Domain
+Platform assembly: C:\Users\Torantula\Documents\Fistman\Fistman_Data\Managed\UnityEngine.Timeline.dll (this message is harmless)
+Loading C:\Users\Torantula\Documents\Fistman\Fistman_Data\Managed\UnityEngine.Timeline.dll into Unity Child Domain
+Platform assembly: C:\Users\Torantula\Documents\Fistman\Fistman_Data\Managed\UnityEngine.Analytics.dll (this message is harmless)
+Loading C:\Users\Torantula\Documents\Fistman\Fistman_Data\Managed\UnityEngine.Analytics.dll into Unity Child Domain
+Platform assembly: C:\Users\Torantula\Documents\Fistman\Fistman_Data\Managed\System.dll (this message is harmless)
+Platform assembly: C:\Users\Torantula\Documents\Fistman\Fistman_Data\Managed\System.Core.dll (this message is harmless)
+- Completed reload, in  0.205 seconds
+<RI> Initializing input.
+<RI> Input initialized.
+<RI> Initialized touch support.
+UnloadTime: 9.095373 ms
+Unloading 5 Unused Serialized files (Serialized files now loaded: 0)
+UnloadTime: 3.196303 ms
+
+Unloading 5 unused Assets to reduce memory usage. Loaded Objects now: 664.
+Total: 0.320820 ms (FindLiveObjects: 0.061948 ms CreateObjectMapping: 0.017641 ms MarkObjects: 0.226461 ms  DeleteObjects: 0.013948 ms)
+
+health is less than one
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
+
+Unloading 2 Unused Serialized files (Serialized files now loaded: 0)
+UnloadTime: 6.460299 ms
+
+Unloading 97 unused Assets to reduce memory usage. Loaded Objects now: 301.
+Total: 7.988092 ms (FindLiveObjects: 0.057846 ms CreateObjectMapping: 0.043487 ms MarkObjects: 0.381127 ms  DeleteObjects: 7.502759 ms)
+
+Unloading 4 Unused Serialized files (Serialized files now loaded: 0)
+UnloadTime: 0.252717 ms
+
+Unloading 1 unused Assets to reduce memory usage. Loaded Objects now: 664.
+Total: 0.266666 ms (FindLiveObjects: 0.057025 ms CreateObjectMapping: 0.016820 ms MarkObjects: 0.189127 ms  DeleteObjects: 0.002871 ms)
+
+ATTACK SPIDER
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
+
+ATTACK SPIDER
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
+
+ATTACK SPIDER
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
+
+ATTACK SPIDER
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
+
+ATTACK SPIDER
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
+
+ATTACK SPIDER
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
+
+ATTACK SPIDER
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
+
+ATTACK SPIDER
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
+
+ATTACK SPIDER
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
+
+ATTACK SPIDER
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
+
+ATTACK SPIDER
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
+
+ATTACK SPIDER
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
+
+ATTACK SPIDER
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
+
+ATTACK SPIDER
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
+
+ATTACK SPIDER
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
+
+ATTACK SPIDER
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
+
+ATTACK SPIDER
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
+
+ATTACK SPIDER
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
+
+ATTACK SPIDER
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
+
+ATTACK SPIDER
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
+
+ATTACK SPIDER
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
+
+ATTACK SPIDER
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
+
+ATTACK SPIDER
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
+
+ATTACK SPIDER
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
+
+ATTACK SPIDER
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
+
+ATTACK SPIDER
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
+
+health is less than one
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
+
+Unloading 2 Unused Serialized files (Serialized files now loaded: 0)
+UnloadTime: 1.341947 ms
+
+Unloading 97 unused Assets to reduce memory usage. Loaded Objects now: 301.
+Total: 4.587481 ms (FindLiveObjects: 0.036102 ms CreateObjectMapping: 0.028307 ms MarkObjects: 0.282256 ms  DeleteObjects: 4.239584 ms)
+
+Unloading 4 Unused Serialized files (Serialized files now loaded: 0)
+UnloadTime: 0.472204 ms
+
+Unloading 1 unused Assets to reduce memory usage. Loaded Objects now: 664.
+Total: 0.369640 ms (FindLiveObjects: 0.050051 ms CreateObjectMapping: 0.027897 ms MarkObjects: 0.285538 ms  DeleteObjects: 0.005743 ms)
+
+ATTACK SPIDER
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
+
+ATTACK SPIDER
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
+
+ATTACK SPIDER
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
+
+ATTACK SPIDER
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
+
+ATTACK SPIDER
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
+
+ATTACK SPIDER
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
+
+ATTACK SPIDER
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
+
+ATTACK SPIDER
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
+
+ATTACK SPIDER
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
+
+ATTACK SPIDER
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
+
+ATTACK SPIDER
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
+
+ATTACK SPIDER
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
+
+ATTACK SPIDER
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
+
+ATTACK SPIDER
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
+
+ATTACK SPIDER
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
+
+ATTACK SPIDER
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
+
+ATTACK SPIDER
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
+
+ATTACK SPIDER
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
+
+ATTACK SPIDER
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
+
+ATTACK SPIDER
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
+
+ATTACK SPIDER
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
+
+ATTACK SPIDER
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
+
+Unloading 2 Unused Serialized files (Serialized files now loaded: 0)
+UnloadTime: 2.826252 ms
+
+Unloading 97 unused Assets to reduce memory usage. Loaded Objects now: 300.
+Total: 7.215991 ms (FindLiveObjects: 0.040615 ms CreateObjectMapping: 0.034051 ms MarkObjects: 0.372922 ms  DeleteObjects: 6.767581 ms)
+
+Setting up 2 worker threads for Enlighten.
+  Thread -> id: 5e0 -> priority: 1 
+  Thread -> id: 3cfc -> priority: 1 
